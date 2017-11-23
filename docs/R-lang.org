@@ -1,0 +1,141 @@
+* Installation
+** How To Install R on Ubuntu 16.04
+Refert to: https://www.digitalocean.com/community/tutorials/how-to-install-r-on-ubuntu-16-04-2
+#+BEGIN_SRC sh
+sudo apt-get install r-base
+#+END_SRC
+** Rstudio
+Download://www.rstudio.com/products/rstudio/download-server/
+#+BEGIN_SRC sh
+sudo dpkg -i rstudio-xenial-1.1.383-amd64.deb 
+#+END_SRC
+** What's CRAN?
+The Comprehensive R Archive Network
+* Getting Started with R
+** Assign value
+- "="
+- "<-"
+#+BEGIN_SRC R
+a = 6
+b <- 7
+x.1 <- 14
+#1x <- 8 #Error
+xx <- "marin"
+yy <- "1"
+11+25
+z <- a*b^2
+z <- log(a)
+#+END_SRC
+** Vectors and Matrix
+#+BEGIN_SRC R
+ #+BEGIN_SRC R
+#!/usr/bin/env Rscript
+v <- c(1,4,4,3,2,2,3)
+v[c(1:3)] #characters
+
+w = c("apple", "orange", "banana")
+w[c(1,2)]
+
+seq(from=1, to=7, by=1)
+seq(from=1, to=6, by=1/3)
+
+rep(1, times=10)
+rep("marin", times=5)
+rep(1:3, times=5)
+
+rep(seq(from=2, to=5, by=0.25), times=5)
+rep(c("m","f"), times=6)
+
+x <- 1:5
+x+10
+x-3
+x*9
+x/2
+
+y <- c(1,3,5,7,9)
+
+#if two vectors are of the same length, we may add/subtract/mult/div corresponding elements
+x+y
+x-y
+x*y
+x/y
+
+#extract elements
+y[3]
+y[-3]
+y[1:3] #we may wish to take y and extract the first three elements
+y[c(1,5)] #we may wish to extract the first and the fifth elements
+y[-c(1,5)]
+y[y<5]
+#+END_SRC
+
+#+RESULTS:
+| 1 |
+| 3 |
+
+
+#+BEGIN_SRC R
+mat <- matrix(c(1,2,3,4,5,6,7,8,9),nrow=3,byrow=TRUE)
+mat[1,2]
+mat[c(1,3),2]
+mat[2,]
+mat[,1]
+mat*10
+#+END_SRC
+
+#+RESULTS:
+| 10 | 20 | 30 |
+| 40 | 50 | 60 |
+| 70 | 80 | 90 |
+
+#+BEGIN_SRC R
+matrix(c(1,2,3,4,5,6,7,8,9),nrow=3,byrow=FALSE)
+#+END_SRC
+
+#+RESULTS:
+| 1 | 4 | 7 |
+| 2 | 5 | 8 |
+| 3 | 6 | 9 |
+
+** Importing data from Excel into R (both .csv and .txt files)
+save the data file as:
+- comma separated value: .csv
+- tab delimited text file: .txt
+
+Learn how to import or copy data from excel (or other spreadsheets) into R using both comma-separated values and tab-delimited text file. You will learn to use "read.csv", "read.delim" and "read.table" commands along with "file.choose", "header", and  "sep" arguments. 
+This video is a tutorial for programming in R Statistical Software for beginners.
+
+You can access the dataset here:
+our website: http://www.statslectures.com/index.ph...
+
+or here: 
+
+Excel Data Used in This Video: http://bit.ly/1uyxR3O
+
+Excel Data Used in Subsequent Videos: https://bit.ly/LungCapDataxls 
+Tab Delimited Text File Used in Subsequent Videos: https://bit.ly/LungCapData
+
+#+BEGIN_SRC R
+help("read.csv")
+data1<-read.csv(file.choose(),header=T)
+data2<-read.table(file.choose(),header = T,sep = ",")
+data3 = read.delim(file.choose(),header=T)
+data4 <- read.table(file.choose(),header = T, sep = "\t")
+#+END_SRC
+
+#+RESULTS:
+
+** Making avector filled with values
+#+BEGIN_SRC R
+rep(1,5)
+rep(F,20)
+rep(1:5,4)
+rep(1:5, each=4)
+rep(factor(LETTERS[1:3]), 5)
+#+END_SRC
+
+
+* Reference
+- [[https://cran.r-project.org/index.html][Comprehensive R Archive Network (CRAN)]]
+- [[http://www.cookbook-r.com/][R-cookbook]]
+
